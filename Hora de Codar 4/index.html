@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de Codar 4 - Um novo dia para Codar</title>
+</head>
+<body>
+
+    <script>
+
+//Crie um programa onde o usuário possa cadastrar estudantes sem limites, e, em seguida, Se o usuário digitar "PARE" o programa deve exibir a quantidade de estudantes cadastrados e a lista com cada um deles. 
+
+function cadastrarEstudante() {
+            const estudantes = [];
+            while (true) {
+                let nome =prompt("Digite o nome dos estudantes (ou 'PARE' para encerrar):");
+                if (nome.toUpperCase() === 'PARE') {
+                    return estudantes;
+                } else {
+                    estudantes.push(nome);
+                }
+            }
+        }
+
+        function main() {
+            alert("Bem-vindo");
+            alert("Digite os nomes dos estudantes. Quando desejar parar, digite 'PARE'.");
+
+            const listaEstudantes = cadastrarEstudante();
+
+            let resultado = "Quantidade de estudantes cadastrados: " + listaEstudantes.length + "\n";
+            resultado += "Lista de estudantes cadastrados:\n";
+            listaEstudantes.forEach((estudante, index) => {
+                resultado += (index + 1) + ". " + estudante + "\n";
+            });
+
+            alert(resultado);
+        }
+            main();
+
+
+
+//Crie uma array de planetas que inclua "Terra", "Marte", "Plutão", "Vênus", "Júpiter", "Saturno"  e, em seguida, peça ao usuário para digitar o nome de um planeta. 
+//Verifique se o planeta que o usuário informou está na array e informe ao usuário.
+
+        const planetas = ["Terra", "Marte", "Plutão", "Vênus", "Júpiter", "Saturno"];
+
+        let planetaUsuario = prompt("Digite o nome de um planeta:");
+
+        if (planetas.includes(planetaUsuario)) {
+            alert('O planeta informado está na lista.');
+        } else {
+            alert('Desculpe, o planeta informado não está na lista.');
+        }
+
+
+//Vamos criar uma lista de compras. 
+//Crie uma array de frutas, exiba-a ao usuário e, em seguida, peça ao usuário para digitar o nome de uma das frutas.
+//Caso a fruta esteja no array, remova-a e exiba a mensagem "Fruta foi retirada da lista". 
+//Peça novamente para o usuário digitar o nome de uma fruta para ser removida. 
+//Sempre que o usuário procurar por uma fruta que não está no array exiba a mensagem "Fruta indisponível no nosso mercado". 
+//Quando o array não possuir mais itens dentro de si, escreva "Lista de compras finalizada".      
+
+
+      let frutas = ['banana', 'laranja', 'uva', 'morango', 'pera', 'kiwi'];
+      
+      function removerFruta(fruta) {
+        const index = frutas.indexOf(fruta);
+        if (index !== -1) {
+            frutas.splice(index, 1);
+            alert('${fruta.charAt(0).toUpperCase() + fruta.slice(1)} foi retirada da lista.');
+        } else {
+            alert("Fruta indisponivel no nosso mercado.");
+        }
+      }
+
+        alert("Lista de frutas disponiveis: " + frutas.join(", "));
+
+        while (frutas.length > 0) {
+            const frutaRemover = prompt("Digite o nome de uma fruta para eliminar da lista: ").toLocaleLowerCase();
+            removerFruta(frutaRemover);
+
+            if (frutas.length === 0) {
+                alert("Lista de compras finalizada");
+                break;
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
